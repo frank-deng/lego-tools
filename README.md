@@ -3,7 +3,7 @@ LEGO Tools
 
 Control LEGO 42099 via joystick.
 
-Hardware and software requirements
+Hardware And Software Requirements
 ----------------------------------
 
 * An individual bluetooth dongle used for controlling LEGO hubs (DO NOT use the one used for bluetooth audio).
