@@ -44,8 +44,6 @@ async function calibrate(hub, motorC){
   await hub.sleep(2000);
   await motorC.resetZero();
   await hub.sleep(100);
-  await motorC.gotoAngle(0,10);
-  await hub.sleep(1000);
 }
 
 let running=true, masterHub=null;
@@ -83,7 +81,8 @@ async function onDiscover(hub){
     motorC.setDecelerationTime(1)
   ]);
 
-  await motorC.gotoAngle(0,100);
+  await motorC.gotoAngle(0,10);
+  await hub.sleep(1000);
 
   let currentAngle=0;
   motorC.on('rotate',(e)=>{
