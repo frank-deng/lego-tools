@@ -1,0 +1,20 @@
+{
+  "name": "lego",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "calibrate": "node ./index.js --calibrate",
+    "detect-hubs": "node ./detect-hubs.js",
+    "test-joystick": "node ./test-joystick.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@abandonware/noble": "^1.9.2-11",
+    "evdev": "^0.3.0",
+    "node-poweredup": "^6.11.0",
+    "yargs": "^17.0.1"
+  }
+}

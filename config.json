@@ -1,0 +1,13 @@
+{
+  "joystick":null,
+  "hubId":null,
+  "steer":{
+    "axis":"ABS_X",
+    "reverse":false
+  },
+  "throttle":{
+    "axis":"ABS_RZ",
+    "reverse":false
+  },
+  "brakeButton":"BTN_START"
+}
