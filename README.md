@@ -3,6 +3,16 @@ LEGO Tools
 
 Control LEGO 42099 via joystick.
 
+Hardware and software requirements
+----------------------------------
+
+* An individual bluetooth dongle used for controlling LEGO hubs (DO NOT use the one used for bluetooth audio).
+* A joystick with at least 2 analog axises required.
+* VirtualBox Debian/Ubuntu guest with bluetooth-related packages installed.
+* Connect bluetooth adapter and joystick to the VirtualBox Debian/Ubuntu guest.
+* Run command `sudo apt-get install libcap2-bin` to install `setcap` for the guest.
+* Run command `sudo setcap cap_net_raw+eip /usr/bin/node` every time when nodejs is installed/upgraded inside guest, so as to enable nodejs accessing bluetooth without root privillege.
+
 Commands
 --------
 
