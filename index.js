@@ -123,7 +123,7 @@ async function onDiscover(hub){
         requestAngle=-requestAngle;
       }
       speed=Math.abs(currentAngle-requestAngle)/180*100;
-      speed=Math.min(Math.max(speed,1),100);
+      speed=Math.min(Math.max(speed,5),100);
       //motorC.gotoAngle(requestAngle,speed);
       request.angle=requestAngle;
       request.steerSpeed=speed;
@@ -190,6 +190,9 @@ reader.search('/dev/input/by-id','event-joystick',(err,files)=>{
   device.on('open',()=>{
     console.log('Joystick loaded, start scanning.');
     poweredUp.on('discover',onDiscover).scan();
+  });
+  device.on('error',(e)=>{
+    console.log(e);
   });
 });
 
