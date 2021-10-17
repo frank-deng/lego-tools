@@ -1,3 +1,4 @@
+const {throttle}=require('lodash');
 const $CONFIG=require('./config.json');
 
 const PoweredUP=require('node-poweredup');
@@ -88,6 +89,33 @@ async function onDiscover(hub){
   motorC.on('rotate',(e)=>{
     currentAngle=Number(e.degrees);
   });
+  let request={
+      angle:null,
+      steerSpeed:null,
+      speed:null
+  };
+  const setSteerAngle=throttle(()=>{
+      if(null===request.angle || null===request.steerSpeed){
+          return;
+      }
+      motorC.gotoAngle(request.angle,request.steerSpeed);
+      request.angle=null;
+      request.steerSpeed=null;
+  }, 100, {
+      leading:true,
+      trailing:true
+  });
+  const setSpeed=throttle(()=>{
+      if(null===request.speed){
+          return;
+      }
+      motorA.setPower(request.speed);
+      motorB.setPower(request.speed);
+      request.speed=null;
+  }, 100, {
+      leading:true,
+      trailing:true
+  });
   reader.on("EV_ABS",(data)=>{
     if($CONFIG.steer.axis==data.code){
       let requestAngle=Math.round(90*(data.value-128)/128);
@@ -96,14 +124,19 @@ async function onDiscover(hub){
       }
       speed=Math.abs(currentAngle-requestAngle)/180*100;
       speed=Math.min(Math.max(speed,1),100);
-      motorC.gotoAngle(requestAngle,speed);
+      //motorC.gotoAngle(requestAngle,speed);
+      request.angle=requestAngle;
+      request.steerSpeed=speed;
+      setSteerAngle();
     }else if($CONFIG.throttle.axis==data.code){
       let value=Math.round((data.value-128)*100/128);
       if($CONFIG.throttle.reverse){
         value=-value;
       }
-      motorA.setPower(value);
-      motorB.setPower(value);
+      request.speed=value;
+      setSpeed();
+      //motorA.setPower(value);
+      //motorB.setPower(value);
     }
   });
   reader.on("EV_KEY",async(data)=>{
@@ -124,11 +157,10 @@ process.on('exit',function exitFunction(){
       masterHub.disconnect();
     }
     reader.close();
-    console.log('Exit.');
   }catch(e){
     console.error(e);
   }finally{
-    process.kill(process.pid,'SIGKILL');
+    process.kill(process.pid,'SIGQUIT');
   }
 });
 

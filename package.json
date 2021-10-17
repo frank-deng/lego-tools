@@ -14,6 +14,7 @@
   "dependencies": {
     "@abandonware/noble": "^1.9.2-11",
     "evdev": "^0.3.0",
+    "lodash": "^4.17.21",
     "node-poweredup": "^6.11.0",
     "yargs": "^17.0.1"
   }

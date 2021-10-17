@@ -45,5 +45,5 @@ Configuration
 TODO
 ----
 
-* Use `process.exit()` always hangs, and I haven't figured out why. `SIGKILL` is used to terminate the program at present.
+* Use `process.exit()` always hangs, and I haven't figured out why. `SIGQUIT` is used to terminate the program at present.
 
