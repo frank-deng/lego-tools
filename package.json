@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@abandonware/bluetooth-hci-socket": "^0.5.3-8",
     "@abandonware/noble": "^1.9.2-11",
     "evdev": "^0.3.0",
     "lodash": "^4.17.21",
