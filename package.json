@@ -12,11 +12,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@abandonware/bluetooth-hci-socket": "^0.5.3-8",
-    "@abandonware/noble": "^1.9.2-11",
+    "@abandonware/bluetooth-hci-socket": "^0.5.3-10",
+    "@abandonware/noble": "^1.9.2-20",
     "evdev": "^0.3.0",
     "lodash": "^4.17.21",
-    "node-poweredup": "^6.11.0",
-    "yargs": "^17.0.1"
+    "node-poweredup": "^8.0.5",
+    "yargs": "^17.7.1"
   }
 }
