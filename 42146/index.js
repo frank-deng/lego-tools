@@ -88,14 +88,18 @@ async function onDiscover(hub){
         request.rtrack=value;
         setSpeed();
       }else if($CONFIG.rotate.axis==data.code){
-        let value=Math.round((data.value-128)*100/128);
+        let value=data.value-128;
         if($CONFIG.rotate.reverse){
           value=-value;
         }
-        if(Math.abs(value)<10){
+        if(Math.abs(value)<64){
           value=0;
-        }
-        request.rotate=value;
+        }else if(value > 0){
+	  value-=64;
+        }else if(value < 0){
+	  value+=64;
+	}
+        request.rotate=value*100/64;
         setSpeed();
       }else if($CONFIG.boom.forward==data.code){
         console.log(`${data.code} ${data.value}`);
