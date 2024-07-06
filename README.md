@@ -12,6 +12,7 @@ Hardware And Software Requirements
 * Connect bluetooth adapter and joystick to the VirtualBox Debian/Ubuntu guest.
 * Run command `sudo apt-get install libcap2-bin` to install `setcap` for the guest.
 * Run command `sudo setcap cap_net_raw+eip /usr/bin/node` every time when nodejs is installed/upgraded inside guest, so as to enable nodejs accessing bluetooth without root privillege.
+* Add current user to group `input` to get joystick work.
 
 Commands
 --------
