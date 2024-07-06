@@ -1,0 +1,29 @@
+{
+  "joystick":"usb-20bc_BETOP_CONTROLLER",
+  "lower_hub_id":"90842b7e49c4",
+  "upper_hub_id":"90842b7e4f08",
+  "left_track":{
+    "axis":"ABS_Y",
+    "reverse":true
+  },
+  "right_track":{
+    "axis":"ABS_RZ",
+    "reverse":false
+  },
+  "rotate":{
+    "axis":"ABS_X",
+    "reverse":true
+  },
+  "boom":{
+    "forward":"BTN_X",
+    "back":"BTN_C"
+  },
+  "jib":{
+    "up":"BTN_A",
+    "down":"BTN_B"
+  },
+  "hook":{
+    "up":"BTN_Y",
+    "down":"BTN_TL"
+  }
+}
