@@ -1,7 +1,7 @@
 LEGO Tools
 ==========
 
-Control LEGO 42099 via joystick.
+Control LEGO 42099 and 42146 via joystick.
 
 Hardware And Software Requirements
 ----------------------------------
